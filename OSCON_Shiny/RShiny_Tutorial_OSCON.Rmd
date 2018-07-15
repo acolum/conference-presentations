@@ -284,9 +284,9 @@ This will also correct some errors with downloading content from the app. Since 
 
 Let's extend the UI further to add some additional ease for the user and interactivity with the scatterplot (ggplot).
 
-### Best Practice: Add human-readable labels to our inputs.
+### Best Practice: Add human-readable labels to your inputs.
 
-Add human-readable labels to the scatterplot input widgets, since users probably don't know what `impact_e`, `alt`, and `vel` mean.
+In our app, add human-readable labels to scatterplot's input widgets, since users probably don't know what `impact_e`, `alt`, and `vel` mean.
 
 In the ui, the `choices` option for each scatterplot widget should have the human-readable labels on the left and corresponding machine labels on the right, like below:
 
@@ -308,7 +308,7 @@ In the ui, the `choices` option for each scatterplot widget should have the huma
                               selected = "lat_dir")
 ```
 
-### Add `plotly` integration to make the ggplot interactive
+### Integrate `plotly` to make the ggplot interactive
 
 In the ui mainPanel, replace the function `plotOutput` with `plotlyOutput`. Also, in the server, replace `renderPlot()` with `renderPlotly()`. 
 
@@ -348,18 +348,12 @@ In the same place in the server, assign the ggplot to the variable `orig_ggplot`
 ## Reactive Flow
 
 One familiar way of thinking about the Reactive Flow is in the context of a spreadsheet (e.g. Google Sheets, Microsoft Office Excel). 
-Open Google Sheets or Excel
-Suppose you write a value into a cell in a spreadsheet.
-And then in another cell you write a formula that depends on that cell...
-First the formula is calculated with the value you originally typed.
-Now when you change the value of the original cell, the result of the formula will automatically update, or react, to this change. 
-In a shiny app, reactivity happens in a similar fashion.
-In our (basic) app that we built in the last session, we have a selectInput with the inputID "z." No matter what the user inputs, the inputID always stores it as "z," so whenever the user selects a different option from the list, the value of "z" is updated in the input (input$) list.
-Reactivity automatically occurs when an input value is used to render an output object.
-Here is a roadmap of the reactive flow in shiny, though just for now, we'll just focus on the straight path between an input and output and discuss the other features later in this course.
-The user selects an input, the input goes through some expression in the server, and an output is rendered. Each time a user changes their input selection, the expression that generates the output will automatically re-execute, and the relevant output will be re-rendered based on the new value of the input. 
 
-In a shiny application, there's no need to explicitly define relationships between inputs and outputs and tell R what to do when each input changes. Shiny automatically handles these details for you.
+Suppose you write a value into a cell in a spreadsheet, and in another cell, you write a formula that depends on that cell. First the formula is calculated with the value you originally typed. Then, when you change the value of the original cell, the result of the formula will automatically update, or react, to this change. In a shiny app, reactivity happens in a similar fashion.
+
+In our Shiny app that we built in the last session, we have a `selectInput` with the inputID `z`. No matter what the user inputs, the inputID always stores it as `z`, so whenever the user selects a different option from the list, the value of `z` is updated in the input (`input$`) list.
+
+In a shiny application, there's no need to explicitly define relationships between inputs and outputs and tell R what to do when each input changes. Shiny's reactivity automatically handles these details for you.
 
 ## UI Inputs
 
@@ -480,13 +474,13 @@ Be sure to add the corresponding `downloadHandler()` in the server.
 ## The Theory of Reactivity
 
 Reactivity makes shiny apps more efficient but also more complex.
-There are three kinds of objects in reactive programming: reactive sources, conductors, and endpoints. 
+There are three kinds of objects in reactive programming: **reactive sources, conductors, and endpoints.** 
 
-Reactive sources are typically user inputs that come through a browser interface (`input$*`). 
+1. **Reactive sources** are typically user inputs that come through a browser interface (`input$*`). 
 
-Reactive endpoints are objects that appear in a user's browser window, such as a plot or table of values (`output$*`). One reactive source can be connected to multiple endpoints and vice versa. 
+2. **Reactive endpoints** are objects that appear in a user's browser window, such as a plot or table of values (`output$*`). One reactive source can be connected to multiple endpoints and vice versa. 
 
-Reactive conductors (`reactive()`) are reactive components between sources and endpoints. A conductor can be both a child and parent (both being a dependent and having dependents) whereas a source can only be a parent (can only have dependents) and an endpoint can only be a child (can only be a dependent).
+3. **Reactive conductors** (`reactive()`) are reactive components between sources and endpoints. A conductor can be both a child and parent (both being a dependent and having dependents) whereas a source can only be a parent (can only have dependents) and an endpoint can only be a child (can only be a dependent).
 
 > We've already made use of these reactive expressions to build our app, updating the backend dataframe, visualized dataframe, map, ggplot, and download every time we select a new date range.
 

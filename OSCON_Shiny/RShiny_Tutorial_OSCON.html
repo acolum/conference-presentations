@@ -11,7 +11,7 @@
 
 <meta name="author" content="Alyssa Columbus" />
 
-<meta name="date" content="2018-07-08" />
+<meta name="date" content="2018-07-14" />
 
 <title>OSCON 2018: Data Visualization with R Shiny</title>
 
@@ -222,7 +222,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">OSCON 2018: Data Visualization with R Shiny</h1>
 <h4 class="author"><em>Alyssa Columbus</em></h4>
-<h4 class="date"><em>July 08, 2018</em></h4>
+<h4 class="date"><em>July 14, 2018</em></h4>
 
 </div>
 
@@ -506,9 +506,9 @@ server &lt;- function(input, output) {
 <div id="extend-the-ui-further" class="section level2">
 <h2>Extend the UI Further</h2>
 <p>Let’s extend the UI further to add some additional ease for the user and interactivity with the scatterplot (ggplot).</p>
-<div id="best-practice-add-human-readable-labels-to-our-inputs." class="section level3">
-<h3>Best Practice: Add human-readable labels to our inputs.</h3>
-<p>Add human-readable labels to the scatterplot input widgets, since users probably don’t know what <code>impact_e</code>, <code>alt</code>, and <code>vel</code> mean.</p>
+<div id="best-practice-add-human-readable-labels-to-your-inputs." class="section level3">
+<h3>Best Practice: Add human-readable labels to your inputs.</h3>
+<p>In our app, add human-readable labels to scatterplot’s input widgets, since users probably don’t know what <code>impact_e</code>, <code>alt</code>, and <code>vel</code> mean.</p>
 <p>In the ui, the <code>choices</code> option for each scatterplot widget should have the human-readable labels on the left and corresponding machine labels on the right, like below:</p>
 <pre class="r"><code>                  choices = c(&quot;Optical Radiated Energy&quot; = &quot;energy&quot;,
                               &quot;Impact Energy&quot; = &quot;impact_e&quot;,
@@ -526,8 +526,8 @@ server &lt;- function(input, output) {
                               &quot;Longitudinal Direction&quot; = &quot;lon_dir&quot;),
                               selected = &quot;lat_dir&quot;)</code></pre>
 </div>
-<div id="add-plotly-integration-to-make-the-ggplot-interactive" class="section level3">
-<h3>Add <code>plotly</code> integration to make the ggplot interactive</h3>
+<div id="integrate-plotly-to-make-the-ggplot-interactive" class="section level3">
+<h3>Integrate <code>plotly</code> to make the ggplot interactive</h3>
 <p>In the ui mainPanel, replace the function <code>plotOutput</code> with <code>plotlyOutput</code>. Also, in the server, replace <code>renderPlot()</code> with <code>renderPlotly()</code>.</p>
 <p>In the same place in the server, assign the ggplot to the variable <code>orig_ggplot</code> and plotly-ify this ggplot by typing <code>ggplotly(orig_ggplot)</code>. Your server <code>output$scatterplot</code> should look like this:</p>
 <pre class="r"><code>  # Create the scatterplot object the plotlyOutput function is expecting
@@ -557,8 +557,10 @@ server &lt;- function(input, output) {
 <h1>Tutorial Session 2: Constructing the Module</h1>
 <div id="reactive-flow" class="section level2">
 <h2>Reactive Flow</h2>
-<p>One familiar way of thinking about the Reactive Flow is in the context of a spreadsheet (e.g. Google Sheets, Microsoft Office Excel). Open Google Sheets or Excel Suppose you write a value into a cell in a spreadsheet. And then in another cell you write a formula that depends on that cell… First the formula is calculated with the value you originally typed. Now when you change the value of the original cell, the result of the formula will automatically update, or react, to this change. In a shiny app, reactivity happens in a similar fashion. In our (basic) app that we built in the last session, we have a selectInput with the inputID “z.” No matter what the user inputs, the inputID always stores it as “z,” so whenever the user selects a different option from the list, the value of “z” is updated in the input (input$) list. Reactivity automatically occurs when an input value is used to render an output object. Here is a roadmap of the reactive flow in shiny, though just for now, we’ll just focus on the straight path between an input and output and discuss the other features later in this course. The user selects an input, the input goes through some expression in the server, and an output is rendered. Each time a user changes their input selection, the expression that generates the output will automatically re-execute, and the relevant output will be re-rendered based on the new value of the input.</p>
-<p>In a shiny application, there’s no need to explicitly define relationships between inputs and outputs and tell R what to do when each input changes. Shiny automatically handles these details for you.</p>
+<p>One familiar way of thinking about the Reactive Flow is in the context of a spreadsheet (e.g. Google Sheets, Microsoft Office Excel).</p>
+<p>Suppose you write a value into a cell in a spreadsheet, and in another cell, you write a formula that depends on that cell. First the formula is calculated with the value you originally typed. Then, when you change the value of the original cell, the result of the formula will automatically update, or react, to this change. In a shiny app, reactivity happens in a similar fashion.</p>
+<p>In our Shiny app that we built in the last session, we have a <code>selectInput</code> with the inputID <code>z</code>. No matter what the user inputs, the inputID always stores it as <code>z</code>, so whenever the user selects a different option from the list, the value of <code>z</code> is updated in the input (<code>input$</code>) list.</p>
+<p>In a shiny application, there’s no need to explicitly define relationships between inputs and outputs and tell R what to do when each input changes. Shiny’s reactivity automatically handles these details for you.</p>
 </div>
 <div id="ui-inputs" class="section level2">
 <h2>UI Inputs</h2>
@@ -643,10 +645,12 @@ server &lt;- function(input, output) {
 </div>
 <div id="the-theory-of-reactivity" class="section level2">
 <h2>The Theory of Reactivity</h2>
-<p>Reactivity makes shiny apps more efficient but also more complex. There are three kinds of objects in reactive programming: reactive sources, conductors, and endpoints.</p>
-<p>Reactive sources are typically user inputs that come through a browser interface (<code>input$*</code>).</p>
-<p>Reactive endpoints are objects that appear in a user’s browser window, such as a plot or table of values (<code>output$*</code>). One reactive source can be connected to multiple endpoints and vice versa.</p>
-<p>Reactive conductors (<code>reactive()</code>) are reactive components between sources and endpoints. A conductor can be both a child and parent (both being a dependent and having dependents) whereas a source can only be a parent (can only have dependents) and an endpoint can only be a child (can only be a dependent).</p>
+<p>Reactivity makes shiny apps more efficient but also more complex. There are three kinds of objects in reactive programming: <strong>reactive sources, conductors, and endpoints.</strong></p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Reactive sources</strong> are typically user inputs that come through a browser interface (<code>input$*</code>).</p></li>
+<li><p><strong>Reactive endpoints</strong> are objects that appear in a user’s browser window, such as a plot or table of values (<code>output$*</code>). One reactive source can be connected to multiple endpoints and vice versa.</p></li>
+<li><p><strong>Reactive conductors</strong> (<code>reactive()</code>) are reactive components between sources and endpoints. A conductor can be both a child and parent (both being a dependent and having dependents) whereas a source can only be a parent (can only have dependents) and an endpoint can only be a child (can only be a dependent).</p></li>
+</ol>
 <blockquote>
 <p>We’ve already made use of these reactive expressions to build our app, updating the backend dataframe, visualized dataframe, map, ggplot, and download every time we select a new date range.</p>
 </blockquote>
