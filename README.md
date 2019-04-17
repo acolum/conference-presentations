@@ -1,6 +1,6 @@
 # Presentations
 
-All of my conference, meetup, and university presentations.
+A collection of my conference, meetup, and university presentations.
 
 | Date | Title | Type | Venue |
 |------|-------|------|-------|
