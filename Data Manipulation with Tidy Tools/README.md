@@ -4,4 +4,4 @@
 
 ### Alyssa Columbus
 
-:construction: More info TBA!
+Download all files and follow along and read the [full tutorial on RPubs](http://rpubs.com/acolumbus/ocrug-data-manipulation-with-tidy-tools)!
