@@ -6,6 +6,7 @@ A collection of my conference, meetup, and university presentations.
 |--------|---------|--------|---------|
 | September 28, 2019 | Data Storytelling: From Insight to Action | Talk | DataScienceGO 2019 |
 | August 23, 2019 | A Data Odyssey: Open Source AI's Transformation of the Insurance Industry | Talk | The Linux Foundation Open Source Summit 2019 |
+| July 30, 2019 | Data Visualization with R Shiny | Talk | OC R Users Group |
 | July 18, 2019 | A Data Odyssey: Open Source AI's Transformation of the Insurance Industry | Talk | O'Reilly Open Source Convention (OSCON) 2019 |
 | July 15, 2019 | [Getting Started with R and Docker for Reproducibility and Production](https://github.com/acolum/conference-presentations/tree/master/OSCON-2019-R-Docker-Tutorial) | Tutorial | O'Reilly Open Source Convention (OSCON) 2019 |
 | May 18, 2019 | [Data Manipulation with Tidy Tools](https://github.com/acolum/conference-presentations/tree/master/Data%20Manipulation%20with%20Tidy%20Tools) | Tutorial | OCRUG Hackathon 2019 |
