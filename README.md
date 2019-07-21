@@ -4,7 +4,6 @@ A collection of my conference, meetup, and university presentations.
 
 |  Date  |  Title  |  Type  |  Venue  |
 |--------|---------|--------|---------|
-| September 28, 2019 | Data Storytelling: From Insight to Action | Talk | DataScienceGO 2019 |
 | July 30, 2019 | Data Visualization with R Shiny | Talk | OC R Users Group |
 | May 18, 2019 | [Data Manipulation with Tidy Tools](https://github.com/acolum/conference-presentations/tree/master/Data%20Manipulation%20with%20Tidy%20Tools) | Tutorial | OCRUG Hackathon 2019 |
 | April 30, 2019 | [Data Visualization with R Shiny](https://github.com/acolum/conference-presentations/tree/master/ODSC%20EAST%202019) | Tutorial | Open Data Science Conference (ODSC) East 2019 |
