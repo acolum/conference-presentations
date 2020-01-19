@@ -4,9 +4,12 @@ A collection of my conference, meetup, and university presentations.
 
 |  Date  |  Title  |  Type  |  Venue  |
 |--------|---------|--------|---------|
+| January 14, 2020 | [How to Successfully Start a New Job](https://github.com/rladies-irvine/2020_visualization_of_gene_expression_data/blob/master/How%20to%20Successfully%20Start%20a%20New%20Job.pdf) | Talk | R-Ladies Irvine |
+| October 10, 2019 | [Halloween Hackathon with `gganimate`](https://github.com/rladies-irvine/halloween-hackathon-gganimate) | Tutorial | R-Ladies Irvine |
 | August 8, 2019 | [R Package Development Workshop](https://github.com/rladies-irvine/2019-r-package-development-workshop) | Tutorial | R-Ladies Irvine |
 | May 18, 2019 | [Data Manipulation with Tidy Tools](https://github.com/acolum/conference-presentations/tree/master/Data%20Manipulation%20with%20Tidy%20Tools) | Tutorial | OCRUG Hackathon 2019 |
 | April 30, 2019 | [Data Visualization with R Shiny](https://github.com/acolum/conference-presentations/tree/master/ODSC%20EAST%202019) | Tutorial | Open Data Science Conference (ODSC) East 2019 |
+| March 14, 2019 | [Pi Day](https://github.com/rladies-irvine/presentations/tree/master/2019-03-14_Pi-Day) | Talk | R-Ladies Irvine |
 | January 30, 2019 | [Happy Shiny New Year](https://github.com/rladies-irvine/presentations/tree/master/2019-01-30_Happy-Shiny-New-Year) | Tutorial | R-Ladies Irvine |
 | November 27, 2018 | [Telling Meaningful Stories with Data](https://github.com/acolum/conference-presentations/blob/master/2018-11-27_OCRUG-Data-Storytelling.pptx) | Talk | OC R Users Group |
 | November 19, 2018 | [UC Irvine M.S. Business Analytics Guest Lecture](https://github.com/acolum/conference-presentations/blob/master/2018-11-19_MSBA-PL-Guest-Lecture.pdf) | Guest Lecture | UC Irvine Graduate Course BANA 277 |
